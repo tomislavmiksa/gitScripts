@@ -4,6 +4,13 @@ This directory contains a set of useful scripts to collect the DNS names and log
 
 It contains the scripts bellow required for the test.
 
+The scripts shall:
+
+- install the tcpdump from the public Debian repo
+- create and enable `dnsdebug.service` which will collect the DNS traffic and store it under the `/tmp` folder
+- after the testing had been done, push the records to a webhook
+- ***IMPORTANT***: execute cleanup script when done, as service will fill the `/tmp` directory
+
 ## SCRIPTS
 
 - `./cb4_install_tcpdump.sh` - install the tcpdump on the CB4 and cleanup after yourself
@@ -11,6 +18,13 @@ It contains the scripts bellow required for the test.
 - `./cb4_clean_tcpdump_dns.sh` - cleanup tcpdump service on the cube after the analysis is done
 
 # USAGE
+
+## Prerequisites
+
+- unrestricted internet access as
+	- GitHub.com must be reachable to pickup the setup scripts
+	- debian public repo-s to install tcpdump on the cube
+	- Webhook.site must be reachable to push the collected files in the UL
 
 ## Install the tcpdump on CB4
 
@@ -68,11 +82,9 @@ systemctl status dnsdebug
 	curl -F 'file=@dnsrecords.pcap' https://webhook.site/e661f835-55a3-47fa-9c2b-4e9cd0b0b291
 	```
 
-	
-
-
-
 ## Cleanup Service and files
+
+- you ***MUST*** cleanup after yourself, as the service is filling `/tmp`
 
 ```shell
 # when completed, clear the cube to stop DNS debugging
