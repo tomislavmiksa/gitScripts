@@ -6,7 +6,7 @@
 # Version     : 0.0.0
 
 DNSSVCS="/etc/systemd/system/dnsdebug.service"
-DNSDUMP="/tmp/dnsrecords.log"
+DNSDUMP="/tmp/dnsrecords.pcap"
 
 function err() {
    # function to write the error output
@@ -27,7 +27,7 @@ Description="This service is there to get the DNS requests logs"
 [Service]
 User=root
 WorkingDirectory=/home/cb4adm/
-ExecStart=tcpdump -n -i any port 53 >> $DNSDUMP
+ExecStart=tcpdump -n -w $DNSDUMP -i any port 53
 # optional items below
 Restart=always
 RestartSec=10
