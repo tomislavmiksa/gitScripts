@@ -36,7 +36,7 @@ EOF
 # function to remove the public repositories from the cube
 function dontRepo() {
     # remove the repository files
-    rm -rf $REPOFILE
+    sudo rm -rf $REPOFILE
     sudo apt-get update
 }
 
@@ -51,7 +51,7 @@ function main() {
      echo -e "Starting the install tcpdump script..."
      doRepo $REPOFILE
      installTcpDump
-     dontRepo $REPOFILE
+     #dontRepo $REPOFILE
 }
 
 # MAIN PROGRAM CALL
