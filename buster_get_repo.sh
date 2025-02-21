@@ -15,6 +15,8 @@ function err() {
 # function to add public buster repo on the cube
 function doRepo() {
     echo -e "Adding public buster repo to the device"
+    sudo touch $1
+    sudo chmod 777 $1
     cat >> $1<< EOF
 deb https://deb.debian.org/debian buster main contrib non-free
 deb https://deb.debian.org/debian buster-updates main contrib non-free
