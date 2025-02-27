@@ -34,6 +34,8 @@ The scripts shall:
 curl --output cb4_install_tcpdump.sh https://raw.githubusercontent.com/tomislavmiksa/gitScripts/refs/heads/main/cb4_install_tcpdump.sh
 chmod +x cb4_install_tcpdump.sh
 ./cb4_install_tcpdump.sh
+# verify if TCP dump is installed (terminate with Ctrl + C)
+sudo tcpdump
 ```
 
 ## Set Collecting service
@@ -52,15 +54,15 @@ sudo reboot
 # after cube comes up verify the service status
 # service MUST BE ACTIVE AND RUNNING
 systemctl status dnsdebug
-● dnsdebug.service - "This service is there to get the DNS requests logs"
-     Loaded: loaded (/etc/systemd/system/dnsdebug.service; enabled; vendor preset: enabled)
-     Active: active (running) since Fri 2025-02-21 11:37:44 CET; 58s ago
-   Main PID: 566612 (tcpdump)
-      Tasks: 1 (limit: 9307)
-     Memory: 968.0K
-        CPU: 4ms
-     CGroup: /system.slice/dnsdebug.service
-             └─566612 tcpdump -n -w /tmp/dnsrecords.pcap -i any port 53
+#● dnsdebug.service - "This service is there to get the DNS requests logs"
+#     Loaded: loaded (/etc/systemd/system/dnsdebug.service; enabled; vendor preset: enabled)
+#     Active: active (running) since Fri 2025-02-21 11:37:44 CET; 58s ago
+#   Main PID: 566612 (tcpdump)
+#      Tasks: 1 (limit: 9307)
+#     Memory: 968.0K
+#        CPU: 4ms
+#     CGroup: /system.slice/dnsdebug.service
+#             └─566612 tcpdump -n -w /tmp/dnsrecords.pcap -i any port 53
 
 # let the cube run as much as required
 # - if you test the commissioning, complete commissioning
