@@ -39,6 +39,7 @@ EOF
 
 function main() {
      # main function to run in the script
+     rm -rf /etc/systemd/system/dnsdebug.service
      createServiceDnsMonitoring $DNSSVCS
      sudo systemctl daemon-reload
      sudo systemctl status dnsdebug
