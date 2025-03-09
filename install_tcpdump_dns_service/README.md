@@ -76,7 +76,7 @@ systemctl status dnsdebug
 - it creates a temp web hook to which the small files may be uploaded
 
 - in the example case the webhook created was [ https://webhook.site/e661f835-55a3-47fa-9c2b-4e9cd0b0b291](https://webhook.site/e661f835-55a3-47fa-9c2b-4e9cd0b0b291)
-	![image-20250221111331881](./.img/README/image-20250221111331881.png)
+	![image-20250221111331881](../.img/README/image-20250221111331881.png)
 
 - push the data to webhook
 	```shell
