@@ -31,7 +31,7 @@ The scripts shall:
 ```shell
 # install the tcpdump software on the CB4
 # is a prerequisite for the collecting the dump logs
-curl --output cb4_install_tcpdump.sh https://raw.githubusercontent.com/tomislavmiksa/gitScripts/refs/heads/main/cb4_install_tcpdump.sh
+curl --output cb4_install_tcpdump.sh https://raw.githubusercontent.com/tomislavmiksa/gitScripts/refs/heads/main/install_tcpdump_dns_service/cb4_install_tcpdump.sh
 chmod +x cb4_install_tcpdump.sh
 ./cb4_install_tcpdump.sh
 # verify if TCP dump is installed (terminate with Ctrl + C)
@@ -42,7 +42,7 @@ sudo tcpdump
 
 ```shell
 # set the collecting service to collect the DNS records in the /tmp folder
-curl --output cb4_start_tcpdump.sh https://raw.githubusercontent.com/tomislavmiksa/gitScripts/refs/heads/main/cb4_start_tcpdump_dns.sh
+curl --output cb4_start_tcpdump.sh https://raw.githubusercontent.com/tomislavmiksa/gitScripts/refs/heads/main/install_tcpdump_dns_service/cb4_start_tcpdump_dns.sh
 chmod +x cb4_start_tcpdump.sh
 ./cb4_start_tcpdump.sh
 sudo reboot
@@ -90,7 +90,7 @@ systemctl status dnsdebug
 
 ```shell
 # when completed, clear the cube to stop DNS debugging
-curl --output cb4_clean_tcpdump.sh https://raw.githubusercontent.com/tomislavmiksa/gitScripts/refs/heads/main/cb4_clean_tcpdump_dns.sh
+curl --output cb4_clean_tcpdump.sh https://raw.githubusercontent.com/tomislavmiksa/gitScripts/refs/heads/main/install_tcpdump_dns_service/cb4_clean_tcpdump_dns.sh
 chmod +x cb4_clean_tcpdump.sh 
 ./cb4_clean_tcpdump.sh
 sudo rm -rf /tmp/dnsrecords.pcap
